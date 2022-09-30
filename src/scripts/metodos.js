@@ -76,12 +76,15 @@ function callBackReduce (acumulador, valorAtual) {
 function metodoReduce (array, callBack) {
     let total = 0
     
+
     for (let i=0; i<array.length; i++){
+
+       
 
        if ( i == 0) { total = callBack(0, array[i])}
 
 
-       else { total = callBack(total, array[i])}
+       else {total = callBack(total, array[i])}
 
     }
     return total
@@ -92,51 +95,34 @@ console.log(metodoReduce(numeros,callBackReduce))
 //includes
 
 
-function includesCallBack () {
- 
-   return [19,0,6]
-}
-console.log(includesCallBack())
-
-
-function metodoIncludes (array, callBack) {
-
-    let comparador = []
-
-    for ( let i= 0 ; i < callBack.length; i ++ ) {
-
-        for ( let j = 0; j < array.length; j++){
-            
-            if (callBack[i] == array[j]) {
-                comparador.push(array[j])
-                array.splice(j, 1)
-                console.log(array)
-                break;
-            }
+function includesMetodo (array, parametro) {
+    let arrayp = [parametro]
+    console.log(arrayp)
+    for (let i = 0; i < array.length; i++){
+        if (array[i] == parametro) {
+            return true
         }
-
     }
-    
-    if ( comparador.length == callBack.length) { return true}
-    else {return false}
-    
+    return false
+
 
 }
-console.log(metodoIncludes(numeros, includesCallBack()))
+console.log(includesMetodo(numeros, 5))
 
 
 //indexOf
-function callBackIndiceOf (){
-    return 8
-}
-function metodoIndiceOf (array, callBack) {
+
+let frutas = 'banana'
+function metodoIndiceOf (array, parametro) {
 
     for (let i=0; i<array.length; i++){
        
-        if (array[i]== callBack){return i}
+        if (array[i] == parametro){return i}
     }
     return -1 
 }
-console.log(metodoIndiceOf(numeros, callBackIndiceOf()))
+console.log(metodoIndiceOf(frutas, 'b'))
+
+
 
 
